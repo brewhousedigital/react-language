@@ -55,13 +55,23 @@ export default function App() {
 
     // On page load, grab the value from local storage and save it
     React.useEffect(() => {
+        if(window.localStorage.getItem(localStorageName) === "null") {
+            window.localStorage.setItem(localStorageName, JSON.stringify([]))
+        }
+
         setLanguageProgress(JSON.parse(window.localStorage.getItem(localStorageName)));
     }, []);
 
 
     // Sort the values numerically and re-save them back to localstorage with each lesson completed
     React.useEffect(() => {
-        languageProgress.sort(sortArrayNumerically)
+        try {
+            languageProgress.sort(sortArrayNumerically)
+        } catch (e) {
+            // Something went wrong on load
+            window.location.reload();
+        }
+
         window.localStorage.setItem(localStorageName, JSON.stringify(languageProgress));
     }, [languageProgress]);
 
@@ -77,7 +87,12 @@ export default function App() {
     // When rendering the checkboxes, pass the checked state as a prop
     const handleLessonCompletedStatus = (index) => {
         // Returns a true or false depending on if the lesson is found in local storage
-        return !!languageProgress.includes(index);
+        try {
+            return !!languageProgress.includes(index);
+        } catch(e) {
+            return false;
+        }
+
     }
 
 
