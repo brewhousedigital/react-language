@@ -1,0 +1,60 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    min-height: 101vh;
+}
+
+@media screen and (min-width: 768px) {
+    #course-grid > .MuiGrid-item {
+        --new-grid-size: 20%;
+        -webkit-flex-basis: var(--new-grid-size);
+        -ms-flex-preferred-size: var(--new-grid-size);
+        flex-basis: var(--new-grid-size);
+        max-width: var(--new-grid-size);
+    }
+}
+
+#footer-bar {
+
+}
+
+.question {
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.answer {
+    margin-bottom: 1.5rem;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    opacity: 0;
+}
+
+
+.word-check,
+.word-correct,
+.word-wrong {
+    display: block;
+    width: 100%;
+    padding: 30px 0!important;
+}
+
+.word-check {}
+.word-correct {}
+.word-wrong {
+    background-color: #bb2d3b;
+}
+
+.word-wrong:focus,
+.word-wrong:hover {
+    background-color: #c82333;
+}
