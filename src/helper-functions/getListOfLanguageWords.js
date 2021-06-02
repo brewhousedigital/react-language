@@ -1,7 +1,8 @@
-// https://muses.brewhouse.digital/js/iiufhiugheirugfhgi.json
+const vocabList = require("../data/vocabList.json")
 
 export default function getListOfLanguageWords() {
-    return [
+    return vocabList;
+    /*return [
         {"en": "0", "new": "zero"},
         {"en": "1", "new": "uno"},
         {"en": "2", "new": "due"},
@@ -62,5 +63,5 @@ export default function getListOfLanguageWords() {
         {"en": "9", "new": "nove"},
         {"en": "10", "new": "dieci"},
         {"en": "11", "new": "undici"},
-    ];
+    ];*/
 }
